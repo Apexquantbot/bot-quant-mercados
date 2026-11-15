@@ -82,7 +82,7 @@
             </span>
           </h1>
           <p class="text-[10px] font-extrabold tracking-[0.32em] text-brand-primary leading-tight -mt-0.5">MERCADOS</p>
-          <p id="verTxt" class="text-[9px] font-mono text-slate-500 leading-tight">Web v1.9 · Bot --</p>
+          <p id="verTxt" class="text-[9px] font-mono text-slate-500 leading-tight">Web v2.0 · Bot --</p>
         </div>
       </div>
       <div class="flex items-center gap-2">
@@ -813,7 +813,7 @@
     // =========================================================================
     // ESTADO DEL BOT (frescura de datos, fuente de precios, activos con datos)
     // =========================================================================
-    const VERSION_WEB = '1.9';
+    const VERSION_WEB = '2.0';
     function actualizarVersion() {
       const el = document.getElementById('verTxt');
       if (!el) return;
@@ -1395,8 +1395,8 @@
        ============================================================ -->
   <style id="aq-apaisado">
     .aq-izq > * + *, .aq-der > * + * { margin-top: 1rem; }
-    @media (min-width: 760px) {
-      .aq-cont { max-width: 1400px !important; display: grid; grid-template-columns: minmax(300px, 360px) minmax(0, 1fr); column-gap: 1.25rem; align-items: start; }
+    @media (min-width: 600px) {
+      .aq-cont { max-width: none !important; display: grid; grid-template-columns: minmax(270px, 36%) minmax(0, 1fr); column-gap: 1.25rem; align-items: start; }
       .aq-cont > * { margin-top: 0 !important; }
       .aq-cont > header { grid-column: 1 / -1; margin-bottom: .75rem; }
       .aq-izq, .aq-der { min-width: 0; }
@@ -1404,7 +1404,7 @@
       .aq-izq::-webkit-scrollbar { display: none; }
       #modalHist > div, #modalVelas > div { max-width: 44rem; }
     }
-    @media (min-width: 1180px) {
+    @media (min-width: 1000px) {
       #matchesContainer { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; align-items: start; }
       #matchesContainer > * { margin-top: 0 !important; }
       #matchesContainer > :only-child { grid-column: 1 / -1; }
