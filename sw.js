@@ -2,7 +2,7 @@
 // - Solo intercepta recursos del propio sitio (CDN y fuentes pasan directos, sin guardarse).
 // - La clave de caché ignora la query (?t=...): datos.json ocupa UNA sola entrada que se va sobrescribiendo.
 // - Tope de entradas por si algún día se añaden más archivos.
-const CACHE_NAME = 'apex-mercados-v1.0';
+const CACHE_NAME = 'apex-mercados-v1.9';
 const SHELL = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
 const MAX_ENTRADAS = 30;
 

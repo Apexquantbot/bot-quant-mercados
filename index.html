@@ -82,7 +82,7 @@
             </span>
           </h1>
           <p class="text-[10px] font-extrabold tracking-[0.32em] text-brand-primary leading-tight -mt-0.5">MERCADOS</p>
-          <p id="verTxt" class="text-[9px] font-mono text-slate-500 leading-tight">Web v1.8 · Bot --</p>
+          <p id="verTxt" class="text-[9px] font-mono text-slate-500 leading-tight">Web v1.9 · Bot --</p>
         </div>
       </div>
       <div class="flex items-center gap-2">
@@ -813,7 +813,7 @@
     // =========================================================================
     // ESTADO DEL BOT (frescura de datos, fuente de precios, activos con datos)
     // =========================================================================
-    const VERSION_WEB = '1.8';
+    const VERSION_WEB = '1.9';
     function actualizarVersion() {
       const el = document.getElementById('verTxt');
       if (!el) return;
@@ -1385,6 +1385,49 @@
 
       setInterval(cargarDatos, 20000);
     });
+  </script>
+  <!-- ============================================================
+       MODO APAISADO (móvil girado, tablet, pantalla del coche)
+       En pantallas anchas la web se reparte en dos columnas:
+         izquierda -> resumen, rendimiento y efectividad (fija)
+         derecha   -> pestañas, filtros y tarjetas
+       En vertical se ve exactamente igual que antes.
+       ============================================================ -->
+  <style id="aq-apaisado">
+    .aq-izq > * + *, .aq-der > * + * { margin-top: 1rem; }
+    @media (min-width: 760px) {
+      .aq-cont { max-width: 1400px !important; display: grid; grid-template-columns: minmax(300px, 360px) minmax(0, 1fr); column-gap: 1.25rem; align-items: start; }
+      .aq-cont > * { margin-top: 0 !important; }
+      .aq-cont > header { grid-column: 1 / -1; margin-bottom: .75rem; }
+      .aq-izq, .aq-der { min-width: 0; }
+      .aq-izq { position: sticky; top: .75rem; max-height: calc(100vh - 1.5rem); max-height: calc(100dvh - 1.5rem); overflow-y: auto; padding-bottom: 1rem; scrollbar-width: none; }
+      .aq-izq::-webkit-scrollbar { display: none; }
+      #modalHist > div, #modalVelas > div { max-width: 44rem; }
+    }
+    @media (min-width: 1180px) {
+      #matchesContainer { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; align-items: start; }
+      #matchesContainer > * { margin-top: 0 !important; }
+      #matchesContainer > :only-child { grid-column: 1 / -1; }
+    }
+  </style>
+  <script>
+    (function () {
+      var cont = document.querySelector('body > div.max-w-md.mx-auto');
+      var corte = document.getElementById('tabHoy');
+      if (!cont || !corte) return;
+      while (corte && corte.parentElement !== cont) corte = corte.parentElement;
+      if (!corte) return;
+      var izq = document.createElement('div'); izq.className = 'aq-izq';
+      var der = document.createElement('div'); der.className = 'aq-der';
+      var aDer = false;
+      Array.prototype.slice.call(cont.children).forEach(function (h) {
+        if (h.tagName === 'HEADER') return;
+        if (h === corte) aDer = true;
+        (aDer ? der : izq).appendChild(h);
+      });
+      cont.appendChild(izq); cont.appendChild(der);
+      cont.classList.add('aq-cont');
+    })();
   </script>
 </body>
 </html>

@@ -7,7 +7,7 @@
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
+  "orientation": "any",
   "background_color": "#070e1d",
   "theme_color": "#0c1322",
   "categories": ["finance"],
