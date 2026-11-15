@@ -21,7 +21,7 @@ VERSION = "1.5"
 # ==============================================================================
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
-APP_URL = os.getenv("APP_URL", "https://franciscoserranoadt.github.io/bot-quant-mercados/")
+APP_URL = os.getenv("APP_URL", "https://apexquantbot.github.io/bot-quant-mercados/")
 
 TZ_MADRID = ZoneInfo("Europe/Madrid")
 
